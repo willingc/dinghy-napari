@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>napari Dinghy report
+   — 
+  Activity since 2024-10-09</title>
+  <link rel="icon" href="https://raw.githubusercontent.com/primer/octicons/main/icons/comment-discussion-24.svg" type="image/svg+xml">
+  <style>
+  body {
+    font-family: sans-serif;
+    max-width: 60em;
+    margin: auto;
+    line-height: 1.3;
+    color: black;
+  }
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+  li {
+    margin: 0;
+  }
+  li p {
+    margin: 0;
+  }
+  ul.repos > li {
+    margin-top: 2em;
+  }
+  ul.entries > li {
+    margin-top: 1em;
+  }
+  ul.entries > li > p {
+    margin-left: 4.2em;
+  }
+  ul.entries > li > p:first-child {
+    text-indent: -2.1em;   /* not sure why it's half the 4.2em indent */
+  }
+  ul.comments > li > p {
+    margin-left: 4.2em;
+    padding-left: 1.6em;
+    text-indent: -1.6em;
+  }
+  ul.thread_comment ul.thread_comment {
+    padding-left: 1.6em;
+  }
+  ul.thread_comment > li > p {
+    padding-left: 7.3em;
+    text-indent: -1.6em;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  a:hover {
+    text-decoration: none;
+    color: #0969da;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+  .reponame {
+    font-weight: bold;
+    font-size: 150%;
+    margin-right: .5em;
+  }
+  .label {
+    padding: .2em .5em .1em .5em;
+    border-radius: 2em;
+    font-size: 75%;
+    opacity: .85;
+    vertical-align: middle;
+    white-space: nowrap;
+    /* GitHub label style computations, lifted from github.com */
+    border: 1px solid transparent;
+    --perceived-lightness: calc( ((var(--label-r) * 0.2126) + (var(--label-g) * 0.7152) + (var(--label-b) * 0.0722)) / 255 );
+    --lightness-switch: max(0, min(calc((var(--perceived-lightness) - var(--lightness-threshold)) * -1000), 1));
+    --lightness-threshold: 0.453;
+    --border-threshold: 0.96;
+    --border-alpha: max(0, min(calc((var(--perceived-lightness) - var(--border-threshold)) * 100), 1));
+    background: rgb(var(--label-r), var(--label-g), var(--label-b));
+    color: hsl(0, 0%, calc(var(--lightness-switch) * 100%));
+    border-color: hsla(var(--label-h), calc(var(--label-s) * 1%), calc((var(--label-l) - 25) * 1%), var(--border-alpha));
+  }
+  .homerepo {
+    color: #888;
+  }
+  .boring > p {
+    color: #888;
+  }
+  .footer {
+    color: #888;
+    font-style: italic;
+    margin-top: 3em;
+  }
+  .octicons {
+    display: inline-block;
+    padding-right: .3em;
+  }
+  .octicon {
+    width: 1.3em;
+    height: 1em;
+    display: inline-block;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    padding-bottom: .2em;
+  }
+  .octicon.star {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/star-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.x {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/x-16.svg);
+  
+  }
+  .octicon.check {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-16.svg);
+  
+  }
+  .octicon.checkcircle {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/check-circle-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment.resolved {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tasklist-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.comment {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/comment-16.svg);
+  
+  }
+  .octicon.eye {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/eye-16.svg);
+  
+  }
+  .octicon.filediff {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/file-diff-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.dash {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/dash-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(1.25);
+  
+  }
+  .octicon.pull {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.pull.draft {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-draft-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.pull.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-pull-request-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(316deg) saturate(6) brightness(.8);
+  
+  }
+  .octicon.pull.merged {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-opened-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  .octicon.issue.closed {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/issue-closed-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(220deg) saturate(8) brightness(.65);
+  
+  }
+  .octicon.issue.wontdo {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/skip-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.tag {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/tag-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.commit {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/git-commit-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(172deg) saturate(0.43) brightness(0.65);
+  
+  }
+  .octicon.release {
+    background-image: url(https://raw.githubusercontent.com/primer/octicons/main/icons/package-16.svg);
+  filter: invert(1) brightness(.5) sepia(1) hue-rotate(98deg) saturate(8) brightness(0.5);
+  
+  }
+  </style>
+</head>
+<body>
+
+<h1>napari Dinghy report
+   — 
+  Activity since 2024-10-09</h1>
+
+<ul class="repos">
+  <li>
+      <p><span class="reponame"><a href="https://github.com/napari/napari">napari/napari</a></span>
+      repo issues, pull requests, and releases
+      </p>
+      
+        <ul class="entries">
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7126"><span class="octicons" title="merged pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon merged pull"></span></span><b>enable get_value_3d for image layers</b> #7126</a>
+              [brisvag]
+
+              <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">feature</span>
+                <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:191;--label-g:212;--label-b:242;--label-h:215;--label-s:66;--label-l:84;">highlight</span>
+                
+              </p><p>References and relevant issues
+While trying to debug #7090 I realized it&#39;s pretty simple to get the code from...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7126#discussion_r1773243420" title="09-24 12:25">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jni</b>: raise? I raised my eyebrows reading this 😂 Why not just return None? (The calculation is not...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7126#discussion_r1794466819" title="10-10 02:03">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: I thought it could be done later. wink wink! 😂</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/6886"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>add Shape selection event</b> #6886</a>
+              [OnionKiller]
+
+              <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">feature</span>
+                
+              </p><p>🚀 Feature
+selected event for shapes in Shape layer
+Motivation
+When selecting a shape (Poligon, Line, etc.) it is...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/6886#issuecomment-2404265480" title="10-10 07:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>multimeric</b>: Was there any progress on this? I can attest that it would be a useful event. highlight is okay...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7268"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Speedup triangulation of edges</b> #7268</a>
+              [Czaki]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">qt</span>
+                <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">enhancement</span>
+                
+              </p><p>References and relevant issues
+Description
+Similar to #7256 this PR is speedup face triangulation by avoiding often...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7328"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Value Mismatch Between Points and Labels Layers</b> #7328</a>
+              [iutumerdem]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+I’ve encountered an issue with value mismatches between the points and labels layers in the Napari...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7328#issuecomment-2404610206" title="10-10 09:44">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: The most recent version of napari is 0.5.4. Would you mind verifying if problem still occur on...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7328#issuecomment-2404636818" title="10-10 09:57">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>iutumerdem</b>: Yes, the issue persists in the most recent version of Napari (0.5.4). Interestingly, there are...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7328#issuecomment-2404644249" title="10-10 10:00">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: Could you provide an example dataset and whole script (with reading data, not only...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7328#issuecomment-2404703448" title="10-10 12:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>iutumerdem</b>: I have created a subset of the dataset. You can download it from the link...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7313"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>`magicgui` doesn&#39;t return `Layer` if return type is `Optional`</b> #7313</a>
+              [Modjular]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+I expected my widget to return a new Image layer.
+It did not.
+💡 Steps to Reproduce
+Wrap the return type...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7313#issuecomment-2406583076" title="10-11 05:31">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: @Czaki I agree, let&#39;s get rid of the decorator and move it to napari.types. I also agree it&#39;s...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7330"><span class="octicons" title="newly created; newly closed; closed pull request"><span class="octicon star"></span><span class="octicon x"></span><span class="octicon closed pull"></span></span><b>[Maint] Pin back to ubuntu-22.04 to fix CI</b> #7330</a>
+              [psobolewskiPhD]
+
+              <span class="label" style="--label-r:224;--label-g:99;--label-b:19;--label-h:23;--label-s:84;--label-l:47;">ci</span>
+                <span class="label" style="--label-r:249;--label-g:208;--label-b:196;--label-h:13;--label-s:81;--label-l:87;">maintenance</span>
+                
+              </p><p>References and relevant issues
+CI actions on ubuntu are failing, see:...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7330#issuecomment-2407732927" title="10-11 16:16">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: The --pre fails are due to zarr alpha</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7330#issuecomment-2408157233" title="10-11 21:42">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: Hopefully this will be unneeded if tlambert03/setup-qt-libs#66 works...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7330#issuecomment-2408193582" title="10-11 22:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: Closing, should be fixed upstream: https://github.com/tlambert03/setup-qt-libs/releases/tag/v1.8</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7287"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Update `coverage`, `dask`, `hypothesis`, `imageio`, `ipython`, `napari-console`, `rich`, `tensorstore`, `toolz`, `virtualenv`, `zarr`</b> #7287</a>
+              [napari-bot]
+
+              <span class="label" style="--label-r:249;--label-g:208;--label-b:196;--label-h:13;--label-s:81;--label-l:87;">maintenance</span>
+                
+              </p><p>Updated packages: build, charset-normalizer, cloudpickle, coverage, crc32c, dask, debugpy, distlib, donfig,...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/992"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Ideas for Settings &amp; Preferences</b> #992</a>
+              [tlambert03]
+
+              <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">feature</span>
+                <span class="label" style="--label-r:251;--label-g:202;--label-b:4;--label-h:48;--label-s:96;--label-l:50;">long-term feature</span>
+                <span class="label" style="--label-r:251;--label-g:202;--label-b:4;--label-h:48;--label-s:96;--label-l:50;">design</span>
+                
+              </p><p>🚀A list of things that might benefit from persistence
+Following up on this #834 (comment), this issue is a place...</p></li>
+          <li class="closed">
+
+              <p><a href="https://github.com/napari/napari/issues/5668"><span class="octicons" title="newly closed; closed issue"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon closed issue"></span></span><b>Bug: After stopping the play button functionality, adjusting slider results in an indefinite hang</b> #5668</a>
+              [psobolewskiPhD]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                <span class="label" style="--label-r:242;--label-g:73;--label-b:104;--label-h:348;--label-s:86;--label-l:61;">severity-high</span>
+                <span class="label" style="--label-r:222;--label-g:84;--label-b:92;--label-h:356;--label-s:67;--label-l:60;">UI/UX</span>
+                
+              </p><p>🐛 Bug
+If you use the Play button of the dims slider to view a stack (or tracks, whatever) and hit stop midway then...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/5668#issuecomment-2410886124" title="10-14 11:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: @psobolewskiPhD maybe this is fixed since #7158? (0.5.2+)</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/5668#issuecomment-2412052709" title="10-14 19:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: I can&#39;t reproduce on main or 0.5.0, but got it to happen with 0.4.19.
+So somewhere something in...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="closed">
+
+              <p><a href="https://github.com/napari/napari/issues/5911"><span class="octicons" title="closed issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon closed issue"></span></span><b>v0.4.18 - release process</b> #5911</a>
+              [Czaki]
+
+              <span class="label" style="--label-r:82;--label-g:91;--label-b:251;--label-h:236;--label-s:95;--label-l:65;">task</span>
+                
+              </p><p>🔧 Issue to trace v0.4.18 release process
+3 opened PRs for milestone 0.4.18
+
+ #5761
+ #6016
+ #6022
+
+259 PRs with...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7331"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Fix binder setup</b> #7331</a>
+              [psobolewskiPhD]
+
+              <span class="label" style="--label-r:82;--label-g:91;--label-b:251;--label-h:236;--label-s:95;--label-l:65;">task</span>
+                
+              </p><p>🧰 Task
+Currently, the binder button spawns the linux desktop but the desktop icon for napari doesn&#39;t do anything.
+If...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7331#issuecomment-2412399753" title="10-14 21:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>melissawm</b>: Maybe the setup for the napari-workshop-template can be reused as well?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7331#issuecomment-2412402411" title="10-14 21:54">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: Yup! That needs to be fixed too:
+napari/napari-workshop-template#41</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7327"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Changing Labels layer colormap does not update layer display if data is not uint32</b> #7327</a>
+              [zoccoler]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+I was changing a Labels Layer colormap to hide some labels, so I was turning their alpha value 0.
+I got...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2404192083" title="10-10 06:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: @Czaki but maybe we could support cache invalidation if the colormap is changed? Well, assuming...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2404264864" title="10-10 07:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: But still, maybe there should be some convenience API to invalidate the cache... @Czaki?
+
+We may...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2404954768" title="10-10 12:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>zoccoler</b>: Hmm.. I am changing it in place I guess 😅
+The goal would be to hide/show specific labels...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2405107980" title="10-10 13:32">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: I don&#39;t understand/see the need for that so far.
+
+Well the need is that it would work 😂 because...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2405423717" title="10-10 15:22">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: This should work:
+import napari
+import numpy as np
+from napari.utils import...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2406663541" title="10-11 06:47">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: @Czaki rather than create a new label_colormap, I would instead just do
+color_dict = {i:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2406696351" title="10-11 07:11">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: @Czaki rather than create a new label_colormap, I would instead just do
+color_dict = {i:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7327#issuecomment-2413011044" title="10-15 06:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>zoccoler</b>: Hey guys, I got a little busy but I will try your suggestions and reply you properly later...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/5483"><span class="octicons" title="draft pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon draft pull"></span></span><b>Implement command palette widget</b> #5483</a>
+              [hanjinliu]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">qt</span>
+                
+              </p><p>Description
+This PR implements a command palette widget.
+
+Still work-in-progress, but here&#39;s the list of required...</p></li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7329"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>napari freeze - QXcbIntegration: Cannot create platform OpenGL context, neither GLX nor EGL are enabled</b> #7329</a>
+              [romainGuiet]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+when starting napari I get a frozen napari window displaying the terminal and the following error...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7329#issuecomment-2407719015" title="10-11 16:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: I&#39;m not sure I follow: are you saying the dockerfile works with napari 0.4.19 but not with...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7329#issuecomment-2408689811" title="10-12 20:20">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: For me, it looks like lack of OpenGL libraries.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7329#issuecomment-2408744755" title="10-12 23:33">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: I think something changed in your container image so you don&#39;t have the libxcb libs...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7329#issuecomment-2414048488" title="10-15 14:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>romainGuiet</b>: Dear @psobolewskiPhD , Dear @Czaki ,
+Thank you for your answers.
+I&#39;m sorry if my description was...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7329#issuecomment-2414150054" title="10-15 14:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: Just to be sure if this is a napari 0.5.x issue, you try to also check:
+RUN conda create --name...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7326"><span class="octicons" title="newly merged; merged pull request"><span class="octicon dash"></span><span class="octicon check"></span><span class="octicon merged pull"></span></span><b>Fix double reporting of leaked widgets</b> #7326</a>
+              [Czaki]
+
+              <span class="label" style="--label-r:249;--label-g:208;--label-b:196;--label-h:13;--label-s:81;--label-l:87;">maintenance</span>
+                
+              </p><p>Description
+As in the current code, we raise an exception before calling widget.setObjectName on leaked widgets, the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7326#pullrequestreview-2358679593" title="10-10 02:12">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jni</b></a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7333"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>IndexError when mixing 2D and 3D layers and enabling transform mode</b> #7333</a>
+              [jni]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+Turning on transform mode with layers of mixed dimensionality causes a crash when mousing over the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7333#issuecomment-2415296669" title="10-15 22:45">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: @dalthviz, do you happen to have some cycles available this week to try to tackle this one? 😬 🙏</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7322"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>[Enh] Add a `Merge to RGB` contextual menu item</b> #7322</a>
+              [psobolewskiPhD]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">qt</span>
+                <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">enhancement</span>
+                <span class="label" style="--label-r:222;--label-g:84;--label-b:92;--label-h:356;--label-s:67;--label-l:60;">UI/UX</span>
+                
+              </p><p>References and relevant issues
+Closes: #1199
+Description
+This PR does 5 things:
+
+fixes the stack_utils...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#pullrequestreview-2358424095" title="10-09 23:19">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>DragaDoncila</b>: I like it, and it works like a charm 🎉  Left a couple of comments.
+Only point I would make is...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1794302712" title="10-09 23:19">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>DragaDoncila</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                    &#39;All layers...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1794303534" title="10-09 23:19">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>DragaDoncila</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                       ...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1794305882" title="10-09 23:19">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: Should we update these error messages to include all of the conditions that need to be satisfied...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1794307578" title="10-09 23:19">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>DragaDoncila</b>: Generally for code readability I think it&#39;s nice to have the shorter conditional first, so that...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1794351672" title="10-09 23:19">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>DragaDoncila</b>: Could we move this above Merge to Stack? That way it sits just below Split RGB which I think...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#issuecomment-2409110474" title="10-13 20:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: Only point I would make is given the current context keys, we should never hit the error...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#pullrequestreview-2368013649" title="10-15 04:02">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>lucyleeow</b>: This is great thanks @psobolewskiPhD, pulled it down and works fine!
+
+The existing _merge_stack...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1800350852" title="10-15 04:01">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lucyleeow</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                       ...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801211690" title="10-15 13:49">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: uh 👀
+copy pasta? 😬</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1800655312" title="10-15 08:03">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Czaki</b>: assert should be used only in tests. In production code, we should raise ValueError</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801068419" title="10-15 12:27">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: Can you explain why @Czaki?</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801150718" title="10-15 13:16">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: Because assert could be disabled using flag -O</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801209327" title="10-15 13:48">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: As @DragaDoncila noted #7322 (review), we could drop the asserts here, because this is gated by...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1800657222" title="10-15 08:05">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>Czaki</b>: This will fail if colors are in different order than rgb</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801059707" title="10-15 12:21">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: @Czaki that doesn&#39;t seem to be true?
+In [1]: rgb = [&#39;red&#39;, &#39;green&#39;, &#39;blue&#39;]
+
+In [2]: selection0...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801066751" title="10-15 12:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: However, this is potentially more readable:
+In [8]: sorted(selection1, key=lambda item:...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#discussion_r1801148223" title="10-15 13:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: Ah. I read again. It is sorting layers, not filtering.</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7322#issuecomment-2415325503" title="10-15 23:15">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: For public consumption there is stack_utils.merge_rgb which has a basic check, but nothing fancy...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7286"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>[Enh] Double-click to zoom in on the clicked location (alt to zoom out)</b> #7286</a>
+              [psobolewskiPhD]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:162;--label-g:238;--label-b:239;--label-h:180;--label-s:70;--label-l:78;">enhancement</span>
+                <span class="label" style="--label-r:222;--label-g:84;--label-b:92;--label-h:356;--label-s:67;--label-l:60;">UI/UX</span>
+                
+              </p><p>References and relevant issues
+Closes #212
+Description
+Adds a viewer callback for double click that checks if the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7286#issuecomment-2415274314" title="10-15 22:24">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: @psobolewskiPhD I pulled this down to play with it and it&#39;s neat! I updated with main in case...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7286#issuecomment-2415276962" title="10-15 22:26">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>psobolewskiPhD</b>: @DragaDoncila yeah got the CI thing fixed upstream in the action, so tests should be OK here.</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7286#pullrequestreview-2370878945" title="10-16 00:03">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>DragaDoncila</b>: Looks ok to me! Made a tiny nitpick comment heh...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7286#discussion_r1802139235" title="10-16 00:03">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: Would be good to cover this in the test as well by changing the active mode and making sure...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7312"><span class="octicons" title="issue"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Add `register_action` decorator, deprecate `bind_key`</b> #7312</a>
+              [lucyleeow]
+
+              <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">discussion</span>
+                
+              </p><p>This is mentioned in #7056 but warrants it&#39;s own issue.
+With app-model migration, NAP-7 and the over haul of the...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7312#issuecomment-2406563254" title="10-11 05:07">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: Coming back to this with some thoughts!
+
+we need to have a context key so the keybinding is only...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7312#issuecomment-2412897663" title="10-15 04:55">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lucyleeow</b>: Should we just always add this context key to the registered action for the developer? Should we...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7312#issuecomment-2415303424" title="10-15 22:52">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: I would vote for having it automatically added. It reduces burden when dev is writing the plugin...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7312#issuecomment-2415362988" title="10-15 23:58">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>lucyleeow</b>: Ignore the inner widget thing, I got confused.
+I&#39;m fine with the bind_key, you know more. I did...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7312#issuecomment-2415370664" title="10-16 00:05">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>DragaDoncila</b>: What kind of differences were you thinking of?
+
+I wasn&#39;t necessarily thinking of any differences...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="open">
+
+              <p><a href="https://github.com/napari/napari/issues/7334"><span class="octicons" title="newly created; issue"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon issue"></span></span><b>Closing the Viewer calls `dims` `current_step` event twice</b> #7334</a>
+              [paulshuker]
+
+              <span class="label" style="--label-r:215;--label-g:58;--label-b:74;--label-h:353;--label-s:66;--label-l:53;">bug</span>
+                
+              </p><p>🐛 Bug Report
+Dimension current step event is called twice during the Viewer close function.
+💡 Steps to...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/issues/7334#issuecomment-2417031339" title="10-16 14:36">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: It looks related to removing layers from layer list.
+Maybe we should disable dims events during...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7215"><span class="octicons" title="pull request"><span class="octicon dash"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Fix zarr 3.0 compatibility</b> #7215</a>
+              [Czaki]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:212;--label-g:197;--label-b:249;--label-h:257;--label-s:81;--label-l:87;">qt</span>
+                <span class="label" style="--label-r:249;--label-g:208;--label-b:196;--label-h:13;--label-s:81;--label-l:87;">maintenance</span>
+                
+              </p><p>References and relevant issues
+closes #7193
+Description
+Fix zarr 3.0 related test by used named arguments</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7215#discussion_r1764777486" title="09-18 10:02">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jni</b>: As I understand it, this is a problem with the zarr v3 format rather than zarr-python v3, in...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7215#discussion_r1803309257" title="10-16 15:08">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>Czaki</b>: it looks working now</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  </ul>
+              </li>
+          <li class="">
+
+              <p><a href="https://github.com/napari/napari/pull/7332"><span class="octicons" title="newly created; pull request"><span class="octicon star"></span><span class="octicon dash"></span><span class="octicon pull"></span></span><b>Fix bounding box to not contain only shape interior but also edges</b> #7332</a>
+              [Czaki]
+
+              <span class="label" style="--label-r:194;--label-g:224;--label-b:198;--label-h:128;--label-s:32;--label-l:81;">tests</span>
+                <span class="label" style="--label-r:29;--label-g:118;--label-b:219;--label-h:211;--label-s:76;--label-l:48;">bugfix</span>
+                <span class="label" style="--label-r:225;--label-g:254;--label-b:7;--label-h:67;--label-s:99;--label-l:51;">ready to merge</span>
+                
+              </p><p>References and relevant...</p><ul class="comments">
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#issuecomment-2416873813" title="10-16 13:39">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>imagesc-bot</b>: This pull request has been mentioned on Image.sc Forum. There might be relevant details...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#pullrequestreview-2373505599" title="10-16 19:46">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>willingc</b>: Python lgtm. A few suggestions on test function docstrings. Thanks @Czaki</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#discussion_r1803698371" title="10-16 19:46">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>willingc</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                &#34;&#34;&#34;Test if move...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#discussion_r1803704439" title="10-16 19:46">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>willingc</b>: Suggested change
+      
+    
+    
+      
+          
+            
+            def...</a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#discussion_r1803702035" title="10-16 21:08">
+                        
+                          <span class="octicon comment resolved" title="resolved comment"></span>
+                        
+                        <b>willingc</b>: Suggested change
+      
+    
+    
+      
+          
+            
+                &#34;&#34;&#34;Test if move...</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#discussion_r1803926680" title="10-16 23:58">
+                        
+                            <span class="octicon eye" title="reviewed"></span>
+                          
+                        
+                        <b>jni</b>: Interesting, but in this test I can see that the full edge width is accounted for (if the edge...</a></p>
+                      
+                        <ul class="thread_comment"><li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#discussion_r1803927249" title="10-16 23:59">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: wait I just saw that you multiply below 😂 ignore me!</a></p>
+                      
+                    </li>
+                  </ul>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#pullrequestreview-2373880295" title="10-16 23:59">
+                        <span class="octicon checkcircle" title="reviewed, approved"></span>
+                          
+                        
+                        <b>jni</b></a></p>
+                      
+                    </li>
+                  <li>
+                      <p><a href="https://github.com/napari/napari/pull/7332#issuecomment-2418188108" title="10-17 00:06">
+                        
+                          <span class="octicon comment" title="comment"></span>
+                        
+                        <b>jni</b>: I&#39;ve updated the description to have more details without linking out. I think this should be...</a></p>
+                      
+                    </li>
+                  </ul>
+              </li>
+          </ul>
+      
+    </li>
+  </ul>
+
+<p class="footer">
+  created at 2024-10-16 18:03 by
+  <a href="https://pypi.org/project/dinghy/1.1.0">
+    dinghy
+    <span class="dinghy_version">1.1.0</span></a>.
+</p>
+</body>
+</html>
