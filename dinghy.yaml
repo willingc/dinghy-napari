@@ -1,0 +1,14 @@
+defaults:
+  title: napari Dinghy report
+  items:
+    - https://github.com/napari/napari
+
+digests:
+  - digest: 1week.html
+    since: 1 week
+
+  - digest: 3day.html
+    since: 3 day
+
+  - digest: 1day.html
+    since: 1 day
